@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Self-Closing HTML Tag Validator</title>
+        <script>
+            function validateTag(tag) {
+                var regex = /^<\w+(\s+\w+="[^"]*")*\s*\/>$/;
+                return regex.test(tag);
+            }
+            
+            function checkTag() {
+                var input = document.getElementById("tag").value;
+                var isValid = validateTag(input);
+                var result = document.getElementById("result");
+            
+                if (isValid) {
+                    result.innerHTML = "Valid self-closing HTML tag!";
+                } else {
+                    result.innerHTML = "Invalid self-closing HTML tag!";
+                }
+            }
+            </script>
+    </head>
+    <body>
+        <h2>Self-Closing HTML Tag Validator</h2> 
+        <input type="text" id="tag" placeholder="Enter HTML tag...">
+        <button onclick="checkTag()">Check</button>
+        <p id="result"></p>
+    </body>
+</html>

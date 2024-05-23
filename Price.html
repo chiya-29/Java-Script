@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Price Validator</title>
+        <script>
+            function validatePrice(price) {
+                var regex = /^\$\d+(\.\d{2})?$/;
+                return regex.test(price);
+            }
+            
+            function checkPrice() {
+                var input = document.getElementById("price").value;
+                var isValid = validatePrice(input);
+                var result = document.getElementById("result");
+            
+                if (isValid) {
+                    result.innerHTML = "Valid price!";
+                } else {
+                    result.innerHTML = "Invalid price!";
+                }
+            }
+            </script>
+    </head>
+    <body>
+        <h2>Price Validator</h2>
+        <input type="text" id="price" placeholder="Enter price...">
+        <button onclick="checkPrice()">Check</button>
+        <p id="result"></p>
+    </body>
+</html>

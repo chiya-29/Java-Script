@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="sesame-street.js" type="text/javascript"></script>
+        <script src="fetch-pie.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <h1>Whitaker's Desserts</h1>
+        <h2 id="cookie-header">Whitaker's Cookie Jar:</h2>
+        <ul id="cookie-jar">
+            <li class="cookie">Chocolate Chip</li>
+            <li class="cookie">Oatmeal raisin</li>
+            <li class="cookie">Macaroon</li>
+            <p id="cookie-count"></p>
+            <h2>Whitaker's Pie Cupboard:</h2>
+            <ul id="pie-cupboard">   
+            </ul>
+        </ul>
+        <button id="moar-pie">Moar Pie!</button>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var cookieHeader = document.getElementById("cookie-header");
+    cookieHeader.style.color = "yellow";
+});
+            document.addEventListener("DOMContentLoaded", function() {
+                var cookieJar = document.getElementById("#cookie-jar");
+                var cookieCount = cookieJar.getElementsByTagName("li").length;
+                var cookieCountParagraph = document.getElementById("#cookie-count");
+                cookieCountParagraph.textContent = "There are " + cookieCount + " cookie(s) in the cookie jar!";
+                cookieCountParagraph.style.color = "#f7f16d";
+});
+document.addEventListener("DOMContentLoaded", function() {
+    function removeLastCookie() {
+        var cookieJar = document.getElementById("#cookie-jar");
+        var lastCookie = cookieJar.lastElementChild;
+        if (lastCookie) {
+            cookieJar.removeChild(lastCookie);
+            updateCookieCount();
+        }
+    }
+    function updateCookieCount(){
+        var cookieCount = document.getElementById("cookie-jar").getElementsByTagName("li").length;
+        var cookieCountParagraph = document.getElementById("cookie-count");
+        cookieCountParagraph.textContent = "There are " + cookieCount + "cookie(s) in the cookie jar!";
+    }
+    setInterval(removeLastCookie,30000);
+});
+        </script>
+    </body>
+</html>
